@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "106228130701",
+    "firebase_url": "https://itd-and-dda-assignment-1-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "itd-and-dda-assignment-1",
+    "storage_bucket": "itd-and-dda-assignment-1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106228130701:android:ccae78be582a85772193c4",
+        "android_client_info": {
+          "package_name": "com.np.campusbot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9opns4f7A5RiYNeoblJ5APY5a5GepBFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

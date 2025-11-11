@@ -10,6 +10,13 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+
+# Additional folders to ignore
+/[Aa]ssets/[Ee]ditor [Dd]efault [Rr]esources/
+/[Aa]ssets/[Ff]irebase/
+/[Aa]ssets/[Mm]obile[Aa][Rr][Tt]emplate[Aa]ssets/
+/[Aa]ssets/[Pp]lugins
+/[Aa]ssets/[Ss]amples/
 *.log
 
 # MemoryCaptures can get excessive in size.
