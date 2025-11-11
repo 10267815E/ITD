@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using TMPro;
 using Firebase.Auth;
 using Firebase.Extensions;
+using UnityEngine.SceneManagement;
+
 
 public class TestFirebase : MonoBehaviour
 {
@@ -33,6 +35,13 @@ public class TestFirebase : MonoBehaviour
         });
     }
 
+    public class SceneChanger
+    {
+        public static void ChangeScene(string sceneName)
+        {
+            SceneManager.LoadScene(sceneName);
+        }
+    }
     public void SignIn()
     {
         var signInTask = FirebaseAuth.DefaultInstance.SignInWithEmailAndPasswordAsync(EmailInput.text, PasswordInput.text);
@@ -48,19 +57,20 @@ public class TestFirebase : MonoBehaviour
                 Debug.Log($"User logged in, id: {task.Result.User.UserId}");
 
                 // Code to load the user profile
+                SceneManager.LoadScene("Main Scene");
             }
         });
 
-       
+
     }
-    
+
     public void SignOut()
     {
         FirebaseAuth.DefaultInstance.SignOut();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
 
-    
+
+
 
 }
