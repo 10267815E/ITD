@@ -64,6 +64,7 @@ public class ImageTracker : MonoBehaviour
             }
             else if (trackedImage.trackingState == TrackingState.Tracking)
             {
+                Debug.Log("Detected image: " + trackedImage.referenceImage.name);
                 Debug.Log(trackedImage.gameObject.name + " is being tracked.");
                 //Enable the associated content
                 if(spawnedPrefabs[trackedImage.referenceImage.name].transform.parent != trackedImage.transform)
