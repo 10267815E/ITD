@@ -312,6 +312,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72989974}
   m_CullTransparentMesh: 1
+--- !u!1 &124811941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5674743569308224880, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
+  m_PrefabInstance: {fileID: 1161873969}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &145380978
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +563,7 @@ MonoBehaviour:
       m_Calls: []
   m_SerializedLibrary: {fileID: 11400000, guid: 86e4ed2f64de2304b8a5c8242d7794f7, type: 2}
   m_MaxNumberOfMovingImages: 0
-  m_TrackedImagePrefab: {fileID: 0}
+  m_TrackedImagePrefab: {fileID: 124811941}
 --- !u!114 &151853172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4887,15 +4892,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: bd70e57c8e5211643a7d18d1abea25ae, type: 2}
     - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.07116837
+      value: 0.1131079
       objectReference: {fileID: 0}
     - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.07116837
+      value: 0.1131079
       objectReference: {fileID: 0}
     - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.07116837
+      value: 0.1131079
       objectReference: {fileID: 0}
     - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4903,7 +4908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.993
+      value: 0.791
       objectReference: {fileID: 0}
     - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
       propertyPath: m_LocalPosition.z

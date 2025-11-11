@@ -27,3 +27,13 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: saulgoodman
     m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5380777864681718375
+      m_GuidHigh: 16660902263923236511
+    m_SerializedTextureGuid:
+      m_GuidLow: 8837332098891157376
+      m_GuidHigh: 1911023868097377178
+    m_Size: {x: 0.20502512, y: 0.2}
+    m_SpecifySize: 1
+    m_Name: book_logo
+    m_Texture: {fileID: 0}
