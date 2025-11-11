@@ -55,7 +55,7 @@ public class DatabaseController : MonoBehaviour
             }
         });
 
-        Debug.Log("Hahahahaha");
+        
     }
 
     // Auth event handling example
