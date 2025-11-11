@@ -312,11 +312,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72989974}
   m_CullTransparentMesh: 1
---- !u!1 &124811941 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5674743569308224880, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
-  m_PrefabInstance: {fileID: 1161873969}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &145380978
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +558,7 @@ MonoBehaviour:
       m_Calls: []
   m_SerializedLibrary: {fileID: 11400000, guid: 86e4ed2f64de2304b8a5c8242d7794f7, type: 2}
   m_MaxNumberOfMovingImages: 0
-  m_TrackedImagePrefab: {fileID: 124811941}
+  m_TrackedImagePrefab: {fileID: 0}
 --- !u!114 &151853172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,7 +573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ImageTracker
   trackedImageManager: {fileID: 151853171}
   placeablePrefabs:
-  - {fileID: 124811941}
+  - {fileID: 6342985621259690560, guid: 3633703a96069cd478dc5d376491d435, type: 3}
 --- !u!114 &151853173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4878,79 +4873,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
---- !u!1001 &1161873969
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1008855217534647871, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: bd70e57c8e5211643a7d18d1abea25ae, type: 2}
-    - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.1131079
-      objectReference: {fileID: 0}
-    - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.1131079
-      objectReference: {fileID: 0}
-    - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.1131079
-      objectReference: {fileID: 0}
-    - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.016514089
-      objectReference: {fileID: 0}
-    - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.9998637
-      objectReference: {fileID: 0}
-    - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 181.892
-      objectReference: {fileID: 0}
-    - target: {fileID: 2862360082315408865, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5674743569308224880, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
-      propertyPath: m_Name
-      value: book_logo
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b73abdbc10ceeb0479b110f4580fc49f, type: 3}
 --- !u!1 &1262986090
 GameObject:
   m_ObjectHideFlags: 0
@@ -8480,4 +8402,3 @@ SceneRoots:
   - {fileID: 1323550134}
   - {fileID: 2099970469}
   - {fileID: 331264285}
-  - {fileID: 1161873969}

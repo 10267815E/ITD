@@ -73,6 +73,8 @@ public class ImageTracker : MonoBehaviour
                     spawnedPrefabs[trackedImage.referenceImage.name].transform.SetParent(trackedImage.transform);
                     spawnedPrefabs[trackedImage.referenceImage.name].transform.localPosition = Vector3.zero;
                     spawnedPrefabs[trackedImage.referenceImage.name].transform.localRotation = Quaternion.identity;
+                    spawnedPrefabs[trackedImage.referenceImage.name].transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+
                     spawnedPrefabs[trackedImage.referenceImage.name].SetActive(true);
                 }
             }
