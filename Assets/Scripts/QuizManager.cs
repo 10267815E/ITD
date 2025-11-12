@@ -12,14 +12,28 @@ public class QuizManager : MonoBehaviour
         public string[] options;
         public int correctOptionIndex;
     }
+
+    public GameObject quizPanel;
+    public TMP_Text questionText;
+    public Button[] optionButtons;
+    public TMP_Text feedbackText;
+
+    public Question[] questions;
+    private int currentQuestionIndex = 0;
     void Start()
     {
-        
+        quizPanel.SetActive(false); // Hide quiz panel at start
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+    public void StartQuiz()
+    {
+        quizPanel.SetActive(true);
+        currentQuestionIndex = 0;
+
     }
 }
