@@ -1,11 +1,15 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
 
+
 public class ImageTracker : MonoBehaviour
+
 {
+    private QuizManager quizManager;
     [SerializeField]
     private ARTrackedImageManager trackedImageManager;
 
@@ -16,6 +20,9 @@ public class ImageTracker : MonoBehaviour
 
     private void Start()
     {
+
+        quizManager = FindFirstObjectByType<QuizManager>();
+
         if (trackedImageManager != null)
         {
             trackedImageManager.trackablesChanged.AddListener(OnImageChanged);
@@ -54,31 +61,32 @@ public class ImageTracker : MonoBehaviour
 
     void UpdateImage(ARTrackedImage trackedImage)
     {
-        if(trackedImage != null)
-        {
-            if (trackedImage.trackingState == TrackingState.Limited || trackedImage.trackingState == TrackingState.None)
-            {
-                //Disable the associated content
-                spawnedPrefabs[trackedImage.referenceImage.name].transform.SetParent(null);
-                spawnedPrefabs[trackedImage.referenceImage.name].SetActive(false);
-            }
-            else if (trackedImage.trackingState == TrackingState.Tracking)
-            {
-                Debug.Log("Detected image: " + trackedImage.referenceImage.name);
-                Debug.Log(trackedImage.gameObject.name + " is being tracked.");
-                //Enable the associated content
-                if(spawnedPrefabs[trackedImage.referenceImage.name].transform.parent != trackedImage.transform)
-                {
-                    var robot = spawnedPrefabs[trackedImage.referenceImage.name];
-                    robot.transform.SetParent(trackedImage.transform);
-                    robot.transform.localPosition = new Vector3(0f, 0.1f, 0f); // lift slightly above the image
-                    robot.transform.localRotation = Quaternion.Euler(-90f, 180f, 0f); // make it upright and face user
-                    robot.transform.localScale = Vector3.one * 0.2f; 
-                    robot.SetActive(true);
+     if (trackedImage == null || quizManager == null)
+        return;
 
-                }
-            }
-        }
+     string imageName = trackedImage.referenceImage.name;
+
+    if (imageName == "book_logo")
+      {
+         if (trackedImage.trackingState == TrackingState.Tracking)
+         {
+            GameObject robot = spawnedPrefabs[imageName];
+            robot.SetActive(true);
+            robot.transform.SetParent(trackedImage.transform);
+            robot.transform.localPosition = Vector3.zero;
+            robot.transform.localRotation = Quaternion.identity;
+
+            quizManager.StartQuiz();
+            Debug.Log("Quiz started because image detected");
+         }
+         else
+         {
+            spawnedPrefabs[imageName].SetActive(false);
+            quizManager.quizBackground.SetActive(false);
+            Debug.Log("Quiz hidden because image lost");
+         }
+      }
     }
+
 }
 

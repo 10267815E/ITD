@@ -5,25 +5,17 @@ public class RobotBehavior : MonoBehaviour
     void OnEnable()
     {
         FaceCamera();
-
-        QuizManager quizManager = FindFirstObjectByType<QuizManager>();
-        if(quizManager != null)
-        {
-            quizManager.StartQuiz();
-            Debug.Log("Quiz started");
-        }
-        
     }
 
     void FaceCamera()
     {
-        Camera arCamera = Camera.main; // AR Camera
+        Camera arCamera = Camera.main;
         if (arCamera != null)
         {
-            // Rotate the robot to face the camera
             Vector3 lookDirection = arCamera.transform.position - transform.position;
-            lookDirection.y = 0; // Keep robot upright
+            lookDirection.y = 0;
             transform.rotation = Quaternion.LookRotation(lookDirection);
         }
     }
 }
+
