@@ -5,6 +5,13 @@ public class RobotBehavior : MonoBehaviour
     void OnEnable()
     {
         FaceCamera();
+
+        QuizManager quizManager = FindFirstObjectByType<QuizManager>();
+        if(quizManager != null)
+        {
+            quizManager.StartQuiz();
+            Debug.Log("Quiz started");
+        }
         
     }
 
