@@ -69,13 +69,13 @@ public class ImageTracker : MonoBehaviour
                 //Enable the associated content
                 if(spawnedPrefabs[trackedImage.referenceImage.name].transform.parent != trackedImage.transform)
                 {
-                    Debug.Log("Enabling associated content: " + spawnedPrefabs[trackedImage.referenceImage.name].name);
-                    spawnedPrefabs[trackedImage.referenceImage.name].transform.SetParent(trackedImage.transform);
-                    spawnedPrefabs[trackedImage.referenceImage.name].transform.localPosition = Vector3.zero;
-                    spawnedPrefabs[trackedImage.referenceImage.name].transform.localRotation = Quaternion.identity;
-                    spawnedPrefabs[trackedImage.referenceImage.name].transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
+                    var robot = spawnedPrefabs[trackedImage.referenceImage.name];
+                    robot.transform.SetParent(trackedImage.transform);
+                    robot.transform.localPosition = new Vector3(0f, 0.1f, 0f); // lift slightly above the image
+                    robot.transform.localRotation = Quaternion.Euler(-90f, 180f, 0f); // make it upright and face user
+                    robot.transform.localScale = Vector3.one * 0.2f; 
+                    robot.SetActive(true);
 
-                    spawnedPrefabs[trackedImage.referenceImage.name].SetActive(true);
                 }
             }
         }
