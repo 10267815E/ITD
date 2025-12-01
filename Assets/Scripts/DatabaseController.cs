@@ -57,7 +57,7 @@ public class TestFirebase : MonoBehaviour
                 Debug.Log($"User logged in, id: {task.Result.User.UserId}");
 
                 // Code to load the user profile
-                SceneManager.LoadScene("Main Scene");
+                SceneManager.LoadScene("MainMenu");
             }
         });
 
