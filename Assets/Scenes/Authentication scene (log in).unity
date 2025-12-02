@@ -558,7 +558,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -158.62674, y: 223.35004}
+  m_AnchoredPosition: {x: -139.8, y: 223.35004}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &396509633
@@ -2004,7 +2004,7 @@ RectTransform:
   m_GameObject: {fileID: 1549985306}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -4867.5083}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.403827, y: 2.403827, z: 2.403827}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 400894821}
@@ -2012,7 +2012,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -136.72673, y: 242.95}
+  m_AnchoredPosition: {x: -198.7, y: 207.4}
   m_SizeDelta: {x: 40, y: 14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1549985308
@@ -2058,7 +2058,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1549985309}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 68232677}
+        m_TargetAssemblyTypeName: TestFirebase, Assembly-CSharp
+        m_MethodName: SignUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1549985309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2262,7 +2274,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Log in
+  m_text: Sign In
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2431,7 +2443,7 @@ GameObject:
   - component: {fileID: 1821939591}
   - component: {fileID: 1821939590}
   m_Layer: 5
-  m_Name: Log in
+  m_Name: Sign in
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2503,7 +2515,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 68232677}
         m_TargetAssemblyTypeName: TestFirebase, Assembly-CSharp
-        m_MethodName: SignUp
+        m_MethodName: SignIn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -18,6 +18,17 @@ public class TestFirebase : MonoBehaviour
 
     public void SignUp()
     {
+        SceneManager.LoadScene("Authentication scene (sign up)");
+        
+    }
+
+    public void SwitchToLogIn()
+    {
+        SceneManager.LoadScene("Authentication scene (log in)");
+    }
+
+    public void SignUpAccount()
+    {
         var signupTask = FirebaseAuth.DefaultInstance.CreateUserWithEmailAndPasswordAsync(EmailInput.text, PasswordInput.text);
         signupTask.ContinueWithOnMainThread(task =>
         {

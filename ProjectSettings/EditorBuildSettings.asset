@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Authentication scene (log in).unity
     guid: 6feef70540807344ab5bfee0be6fcf25
   - enabled: 1
+    path: Assets/Scenes/Authentication scene (sign up).unity
+    guid: bdc6dbc9de75fcf479b9bf4360620a77
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 45511e435fac286479b97c7c445b1cd8
   - enabled: 1
