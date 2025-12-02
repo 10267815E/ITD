@@ -1,15 +1,11 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
 
-
 public class ImageTracker : MonoBehaviour
-
 {
-    private QuizManager quizManager;
     [SerializeField]
     private ARTrackedImageManager trackedImageManager;
 
@@ -20,9 +16,6 @@ public class ImageTracker : MonoBehaviour
 
     private void Start()
     {
-
-        quizManager = FindFirstObjectByType<QuizManager>();
-
         if (trackedImageManager != null)
         {
             trackedImageManager.trackablesChanged.AddListener(OnImageChanged);
@@ -61,32 +54,20 @@ public class ImageTracker : MonoBehaviour
 
     void UpdateImage(ARTrackedImage trackedImage)
     {
-     if (trackedImage == null || quizManager == null)
-        return;
-
-     string imageName = trackedImage.referenceImage.name;
-
-    if (imageName == "book_logo")
-      {
-         if (trackedImage.trackingState == TrackingState.Tracking)
-         {
-            GameObject robot = spawnedPrefabs[imageName];
-            robot.SetActive(true);
-            robot.transform.SetParent(trackedImage.transform);
-            robot.transform.localPosition = Vector3.zero;
-            robot.transform.localRotation = Quaternion.identity;
-
-            quizManager.StartQuiz();
-            Debug.Log("Quiz started because image detected");
-         }
-         else
-         {
-            spawnedPrefabs[imageName].SetActive(false);
-            quizManager.quizBackground.SetActive(false);
-            Debug.Log("Quiz hidden because image lost");
-         }
-      }
+        if(trackedImage != null)
+        {
+            if (trackedImage.trackingState == TrackingState.Limited || trackedImage.trackingState == TrackingState.None)
+            {
+                //Disable the associated content
+                spawnedPrefabs[trackedImage.referenceImage.name].SetActive(false);
+            }
+            else if (trackedImage.trackingState == TrackingState.Tracking)
+            {
+                //Enable the associated content
+                spawnedPrefabs[trackedImage.referenceImage.name].transform.position = trackedImage.transform.position;
+                spawnedPrefabs[trackedImage.referenceImage.name].transform.rotation = trackedImage.transform.rotation;
+                spawnedPrefabs[trackedImage.referenceImage.name].SetActive(true);
+            }
+        }
     }
-
 }
-
