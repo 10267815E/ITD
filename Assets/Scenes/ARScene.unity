@@ -4151,7 +4151,7 @@ RectTransform:
   m_GameObject: {fileID: 888655334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.3771, y: 1.3771, z: 1.3771}
+  m_LocalScale: {x: 2.3508475, y: 2.3508475, z: 2.3508475}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1826724696}
@@ -4205,7 +4205,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 888655337}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1744000415}
+        m_TargetAssemblyTypeName: IntroManager, Assembly-CSharp
+        m_MethodName: DismissIntro
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &888655337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7664,6 +7676,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1744000414}
+  - component: {fileID: 1744000415}
   m_Layer: 0
   m_Name: IntroManager
   m_TagString: Untagged
@@ -7686,6 +7699,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1744000415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744000413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcbf86811b5cda546974a98444065294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IntroManager
+  introPanel: {fileID: 1048476258}
+  hudPanel: {fileID: 716381735}
 --- !u!1 &1745349595
 GameObject:
   m_ObjectHideFlags: 0
@@ -7713,14 +7740,14 @@ RectTransform:
   m_GameObject: {fileID: 1745349595}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5894, y: 1.5894, z: 1.5894}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1102412158}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -101, y: 115}
+  m_AnchoredPosition: {x: -101, y: 290}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1745349597
