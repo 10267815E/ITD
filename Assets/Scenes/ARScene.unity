@@ -8306,6 +8306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IntroManager
   introPanel: {fileID: 1048476258}
   hudPanel: {fileID: 716381735}
+  libraryQuizScreen: {fileID: 1509104962}
 --- !u!1 &1745349595
 GameObject:
   m_ObjectHideFlags: 0

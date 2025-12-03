@@ -4,7 +4,9 @@ public class IntroManager : MonoBehaviour
 {
     [Header("UI Panels")]
     public GameObject introPanel;   
-    public GameObject hudPanel;     
+    public GameObject hudPanel;  
+
+    public GameObject libraryQuizScreen;   
 
     void Start()
     {
@@ -20,5 +22,11 @@ public class IntroManager : MonoBehaviour
         hudPanel.SetActive(true);    // Show "Search for poster" text
         
         
+    }
+
+    public void StartQuiz(GameObject spawnedRobot) 
+    {
+      Destroy(spawnedRobot); // Remove robot
+      libraryQuizScreen.SetActive(true); // Turns on the Canvas, triggering QuizManager.Start()
     }
 }
