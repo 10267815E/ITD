@@ -261,13 +261,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50332971}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.4302, y: 1.4302, z: 1.4302}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1878666964}
-  m_Father: {fileID: 1256038234}
+  m_Father: {fileID: 1661705534}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -317,7 +317,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 50332974}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1509104967}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: CloseTryAgain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &50332974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6054,7 +6066,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1188493453}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1509104967}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: OnAnswerSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1188493453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6127,7 +6151,6 @@ RectTransform:
   - {fileID: 1698874127}
   - {fileID: 2009278203}
   - {fileID: 1188493451}
-  - {fileID: 50332972}
   m_Father: {fileID: 1509104966}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7384,6 +7407,7 @@ GameObject:
   - component: {fileID: 1509104965}
   - component: {fileID: 1509104964}
   - component: {fileID: 1509104963}
+  - component: {fileID: 1509104967}
   m_Layer: 5
   m_Name: LibraryQuizCanvas
   m_TagString: Untagged
@@ -7476,6 +7500,38 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1509104967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509104962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a151dc0817c6551478bc55c6e5786a5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuizManager
+  questions:
+  - questionText: ' test q1'
+    answers: []
+    correctAnswerIndex: 0
+  - questionText: test q2
+    answers: []
+    correctAnswerIndex: 0
+  - questionText: 'test q3
+
+'
+    answers: []
+    correctAnswerIndex: 0
+  questionTextUI: {fileID: 175811397}
+  answerButtonTexts:
+  - {fileID: 1582001047}
+  - {fileID: 315159787}
+  - {fileID: 534213914}
+  tryAgainPanel: {fileID: 1661705533}
+  winPanel: {fileID: 1494854479}
+  questionPanel: {fileID: 1256038233}
 --- !u!1 &1512515704
 GameObject:
   m_ObjectHideFlags: 0
@@ -8024,6 +8080,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 50332972}
   - {fileID: 1512515705}
   m_Father: {fileID: 1509104966}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8152,7 +8209,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1698874129}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1509104967}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: OnAnswerSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1698874129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10229,7 +10298,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2009278205}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1509104967}
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: OnAnswerSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2009278205
 MonoBehaviour:
   m_ObjectHideFlags: 0
