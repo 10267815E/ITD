@@ -573,7 +573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ImageTracker
   trackedImageManager: {fileID: 151853171}
   placeablePrefabs:
-  - {fileID: 941081311892782974, guid: 7dabc6441306c244690cc2dfa8061508, type: 3}
+  - {fileID: 6546378934423373957, guid: bfb1cd6a92e75e944a5404bc33115963, type: 3}
 --- !u!114 &151853173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6565,37 +6565,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478354563}
   m_CullTransparentMesh: 1
---- !u!1 &1516202465
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1516202466}
-  m_Layer: 0
-  m_Name: QuizManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1516202466
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516202465}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 641.5779, y: 0, z: 2039.7827}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1520419809
 GameObject:
   m_ObjectHideFlags: 0
@@ -9462,4 +9431,3 @@ SceneRoots:
   - {fileID: 1048476262}
   - {fileID: 716381736}
   - {fileID: 1744000414}
-  - {fileID: 1516202466}

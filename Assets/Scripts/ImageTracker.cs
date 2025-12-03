@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-
 public class ImageTracker : MonoBehaviour
 {
     [SerializeField]
@@ -56,18 +55,44 @@ public class ImageTracker : MonoBehaviour
     {
         if(trackedImage != null)
         {
+            GameObject spawnedPrefab = spawnedPrefabs[trackedImage.referenceImage.name];
+            
             if (trackedImage.trackingState == TrackingState.Limited || trackedImage.trackingState == TrackingState.None)
             {
                 //Disable the associated content
-                spawnedPrefabs[trackedImage.referenceImage.name].SetActive(false);
+                spawnedPrefab.SetActive(false);
+                
+                // When tracking is lost, disable the Quiz Prompt as well
+                ToggleQuizPrompt(spawnedPrefab, false);
             }
             else if (trackedImage.trackingState == TrackingState.Tracking)
             {
-                //Enable the associated content
-                spawnedPrefabs[trackedImage.referenceImage.name].transform.position = trackedImage.transform.position;
-                spawnedPrefabs[trackedImage.referenceImage.name].transform.rotation = trackedImage.transform.rotation;
-                spawnedPrefabs[trackedImage.referenceImage.name].SetActive(true);
+                // 1. Enable the associated content (Robot)
+                spawnedPrefab.transform.position = trackedImage.transform.position;
+                spawnedPrefab.transform.rotation = trackedImage.transform.rotation;
+                spawnedPrefab.SetActive(true);
+
+                
+                // The canvas only appears when the image is clearly tracked.
+                ToggleQuizPrompt(spawnedPrefab, true);
             }
+        }
+    }
+    
+   
+    void ToggleQuizPrompt(GameObject parentObject, bool shouldActivate)
+    {
+        // Find the child canvas 
+        
+        Transform promptCanvas = parentObject.transform.Find("QuizPrompt");
+        
+        if (promptCanvas != null)
+        {
+            // Activate the canvas component (which contains the text and button)
+            promptCanvas.gameObject.SetActive(shouldActivate);
+            
+            Debug.Log("Quiz Prompt toggled: " + shouldActivate);
+            
         }
     }
 }
