@@ -472,7 +472,7 @@ RectTransform:
   m_GameObject: {fileID: 101302724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15.512182, y: 9.3317585, z: 9.3317585}
+  m_LocalScale: {x: 17.325556, y: 9.3317585, z: 9.3317585}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1048476262}
@@ -547,7 +547,7 @@ RectTransform:
   m_GameObject: {fileID: 118557704}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15.512179, y: 9.331759, z: 9.331759}
+  m_LocalScale: {x: 17.463612, y: 9.331759, z: 9.331759}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1661705534}
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.028076498, b: 0, a: 0.63529414}
+  m_Color: {r: 1, g: 0.028076498, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6630,7 +6630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.07450981, g: 0.47058824, b: 0.28627452, a: 0.63529414}
+  m_Color: {r: 0.07450981, g: 0.47058824, b: 0.28627452, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7980,7 +7980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.06641343, g: 0.91823894, b: 0.25822154, a: 0.63529414}
+  m_Color: {r: 0, g: 0.6792453, b: 0.15337798, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
