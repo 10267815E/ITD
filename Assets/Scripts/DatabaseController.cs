@@ -1,25 +1,28 @@
 using UnityEngine;
 using Firebase;
 using Firebase.Database;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using Firebase.Auth;
 using Firebase.Extensions;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 
 public class TestFirebase : MonoBehaviour
 {
-
     public TMP_InputField EmailInput;
     public TMP_InputField PasswordInput;
+    
+    // Reference to the database
     DatabaseReference mDatabaseRef;
+
+    private void Start()
+    {
+        // Initialize the Database Reference when the script starts
+        mDatabaseRef = FirebaseDatabase.DefaultInstance.RootReference;
+    }
 
     public void SignUp()
     {
         SceneManager.LoadScene("Authentication scene (sign up)");
-        
     }
 
     public void SwitchToLogIn()
@@ -35,24 +38,32 @@ public class TestFirebase : MonoBehaviour
             if (task.IsFaulted || task.IsCanceled)
             {
                 Debug.Log("Can't sign up due to error!!!");
+                return; // Stop here if it failed
             }
 
             if (task.IsCompleted)
             {
-                Debug.Log($"User signed up successfully, id: {task.Result.User.UserId}");
+                FirebaseUser newUser = task.Result.User;
+                Debug.Log($"User signed up successfully, id: {newUser.UserId}");
 
-                // Code to create user profile in database
+                //  Create the database entry ---
+                WriteNewUser(newUser.UserId, newUser.Email);
             }
         });
     }
 
-    public class SceneChanger
+    private void WriteNewUser(string userId, string email)
     {
-        public static void ChangeScene(string sceneName)
-        {
-            SceneManager.LoadScene(sceneName);
-        }
+        // Create a new User object with default quest data
+        User user = new User(email);
+        
+        // Turn it into JSON
+        string json = JsonUtility.ToJson(user);
+
+        // Save it to: users -> [userID]
+        mDatabaseRef.Child("users").Child(userId).SetRawJsonValueAsync(json);
     }
+
     public void SignIn()
     {
         var signInTask = FirebaseAuth.DefaultInstance.SignInWithEmailAndPasswordAsync(EmailInput.text, PasswordInput.text);
@@ -66,22 +77,30 @@ public class TestFirebase : MonoBehaviour
             if (task.IsCompleted)
             {
                 Debug.Log($"User logged in, id: {task.Result.User.UserId}");
-
-                // Code to load the user profile
                 SceneManager.LoadScene("MainMenu");
             }
         });
-
-
     }
+    
+    
+}
 
-    public void SignOut()
+
+public class User
+{
+    public string email;
+    public QuestData quests;
+
+    public User(string email)
     {
-        FirebaseAuth.DefaultInstance.SignOut();
+        this.email = email;
+        this.quests = new QuestData(); // Creates default false values
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+}
 
-
-
-
+public class QuestData
+{
+    public bool library_completed = false;
+    public bool food_completed = false;
+    public bool services_completed = false;
 }
