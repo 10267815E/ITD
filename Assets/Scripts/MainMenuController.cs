@@ -7,7 +7,7 @@ public class MainMenuController : MonoBehaviour
     
     public void ARController()
     {
-        SceneManager.LoadScene("Main Scene");
+        SceneManager.LoadScene("ARScene");
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
