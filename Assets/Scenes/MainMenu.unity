@@ -1848,6 +1848,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8857a8a28b5425e4b8846cfd91fbcb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
+  welcomeText: {fileID: 505251653}
+  libraryStatusText: {fileID: 1000615036}
+  foodStatusText: {fileID: 1254087837}
+  servicesStatusText: {fileID: 718201819}
 --- !u!1 &1843139970
 GameObject:
   m_ObjectHideFlags: 0
