@@ -29,4 +29,17 @@ public class IntroManager : MonoBehaviour
       Destroy(spawnedRobot); // Remove robot
       libraryQuizScreen.SetActive(true); // Turns on the Canvas, triggering QuizManager.Start()
     }
+
+    public void ReturnToScanningMode()
+    {
+        if (libraryQuizScreen != null)
+        {
+            libraryQuizScreen.SetActive(false); // Hide the quiz UI
+        }
+
+        if (hudPanel != null)
+        {
+            hudPanel.SetActive(true); // Show the "Search for poster" text
+        }
+    }
 }
