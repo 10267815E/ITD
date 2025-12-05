@@ -27,3 +27,23 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: book_logo
     m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5394659494231711883
+      m_GuidHigh: 7537130102660324231
+    m_SerializedTextureGuid:
+      m_GuidLow: 8323910322436014554
+      m_GuidHigh: 130921119939385771
+    m_Size: {x: 0.1050251, y: 0.1050251}
+    m_SpecifySize: 1
+    m_Name: foodclub_logo
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5411324837816596275
+      m_GuidHigh: 12662828320015648174
+    m_SerializedTextureGuid:
+      m_GuidLow: 13354398414471477510
+      m_GuidHigh: 9246025974936336360
+    m_Size: {x: 0.1050251, y: 0.10425568}
+    m_SpecifySize: 1
+    m_Name: studentservicecenter_logo
+    m_Texture: {fileID: 0}

@@ -857,6 +857,8 @@ MonoBehaviour:
   trackedImageManager: {fileID: 151853171}
   placeablePrefabs:
   - {fileID: 6546378934423373957, guid: bfb1cd6a92e75e944a5404bc33115963, type: 3}
+  - {fileID: 2899366068575816130, guid: cc5a505a0198e2f4bbcaa8ba1822401a, type: 3}
+  - {fileID: 7004556546485132208, guid: 97830e59f88eca945bc880f273fbe0eb, type: 3}
 --- !u!114 &151853173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1898,6 +1900,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2512387470528047719, guid: 48cb3fb68c91eb94999fd99957eb0cae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 151853173}
+    - targetCorrespondingSourceObject: {fileID: 2512387469002778309, guid: 48cb3fb68c91eb94999fd99957eb0cae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 48cb3fb68c91eb94999fd99957eb0cae, type: 3}
 --- !u!114 &331264286 stripped
 MonoBehaviour:
