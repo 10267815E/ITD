@@ -8850,6 +8850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a151dc0817c6551478bc55c6e5786a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuizManager
+  questDatabaseName: 
   questions:
   - questionText: ' test q1'
     answers: []
@@ -11408,6 +11409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a151dc0817c6551478bc55c6e5786a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuizManager
+  questDatabaseName: 
   questions:
   - questionText: ' test q1'
     answers: []
@@ -13266,6 +13268,8 @@ MonoBehaviour:
   introPanel: {fileID: 1048476258}
   hudPanel: {fileID: 716381735}
   libraryQuizScreen: {fileID: 1509104962}
+  foodQuizScreen: {fileID: 2137923714}
+  servicesQuizScreen: {fileID: 1169434994}
 --- !u!1 &1745349595
 GameObject:
   m_ObjectHideFlags: 0
@@ -17258,6 +17262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a151dc0817c6551478bc55c6e5786a5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::QuizManager
+  questDatabaseName: 
   questions:
   - questionText: ' test q1'
     answers: []

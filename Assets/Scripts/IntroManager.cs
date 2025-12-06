@@ -29,7 +29,7 @@ public class IntroManager : MonoBehaviour
     public void StartQuiz(GameObject spawnedRobot, int locationID) 
     {
       Destroy(spawnedRobot); // Remove robot
-      libraryQuizScreen.SetActive(true); // Turns on the Canvas, triggering QuizManager.Start()
+       
       switch (locationID)
       {
         case 1:
@@ -46,7 +46,7 @@ public class IntroManager : MonoBehaviour
             break;
       }
 
-      if(hudPanel != null) hudPanel.SetActive(false);
+      
     }
 
     public void ReturnToScanningMode()
@@ -54,6 +54,16 @@ public class IntroManager : MonoBehaviour
         if (libraryQuizScreen != null)
         {
             libraryQuizScreen.SetActive(false); // Hide the quiz UI
+        }
+
+        if (foodQuizScreen != null)
+        {
+            foodQuizScreen.SetActive(false); // Hide the quiz UI
+        }
+
+        if (servicesQuizScreen != null)
+        {
+            servicesQuizScreen.SetActive(false); // Hide the quiz UI
         }
 
         if (hudPanel != null)
