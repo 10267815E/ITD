@@ -7,6 +7,8 @@ public class IntroManager : MonoBehaviour
     public GameObject hudPanel;  
 
     public GameObject libraryQuizScreen;   
+    public GameObject foodQuizScreen;
+    public GameObject servicesQuizScreen;
 
     void Start()
     {
@@ -24,10 +26,27 @@ public class IntroManager : MonoBehaviour
         
     }
 
-    public void StartQuiz(GameObject spawnedRobot) 
+    public void StartQuiz(GameObject spawnedRobot, int locationID) 
     {
       Destroy(spawnedRobot); // Remove robot
       libraryQuizScreen.SetActive(true); // Turns on the Canvas, triggering QuizManager.Start()
+      switch (locationID)
+      {
+        case 1:
+            libraryQuizScreen.SetActive(true);
+            break;
+        case 2:
+            foodQuizScreen.SetActive(true);
+            break;
+        case 3:
+            servicesQuizScreen.SetActive(true);
+            break;
+        default:
+            Debug.LogError("Invalid location ID: " + locationID);
+            break;
+      }
+
+      if(hudPanel != null) hudPanel.SetActive(false);
     }
 
     public void ReturnToScanningMode()

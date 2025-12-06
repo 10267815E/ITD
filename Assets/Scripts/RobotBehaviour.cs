@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class RobotBehavior : MonoBehaviour
 {
+
+    [Header("Robot Identity")]
+    public int locationID;
     void OnEnable()
     {
         FaceCamera();
@@ -27,7 +30,7 @@ public class RobotBehavior : MonoBehaviour
         if (manager != null)
         {
             // 2. Tell the manager to start the quiz and destroy this robot
-            manager.StartQuiz(this.gameObject);
+            manager.StartQuiz(this.gameObject, locationID);
         }
         else
         {

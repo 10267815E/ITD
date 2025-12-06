@@ -9,7 +9,7 @@ public class QuizManager : MonoBehaviour
 {
     [Header("Database Settings")]
     public string questDatabaseName;
-    
+
     [System.Serializable]
     public class QuestionData
     {
@@ -103,7 +103,7 @@ public class QuizManager : MonoBehaviour
 
             // Update the "library_completed" field to true
             //Path: users > [userID] > quests > library_completed
-            dbRef.Child("users").Child(userId).Child("quests").Child("library_completed").SetValueAsync(true)
+            dbRef.Child("users").Child(user.UserId).Child("quests").Child(questDatabaseName).SetValueAsync(true)
                 .ContinueWithOnMainThread(task => 
                 {
                     if (task.IsCompleted)
