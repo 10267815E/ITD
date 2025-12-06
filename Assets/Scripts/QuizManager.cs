@@ -31,14 +31,19 @@ public class QuizManager : MonoBehaviour
 
     private int currentQuestionIndex = 0;
 
-    void Start()
+    // CHANGE 'void Start()' TO 'void OnEnable()'
+    void OnEnable() 
     {
-        currentQuestionIndex = 0;
+        // Resets the index to 0 every time this canvas appears
+        currentQuestionIndex = 0; 
+        
+        // Load the first question
         LoadQuestion();
         
-        tryAgainPanel.SetActive(false);
-        winPanel.SetActive(false);
-        questionPanel.SetActive(true);
+        // Reset panels
+        if(tryAgainPanel != null) tryAgainPanel.SetActive(false);
+        if(winPanel != null) winPanel.SetActive(false);
+        if(questionPanel != null) questionPanel.SetActive(true);
     }
 
     void LoadQuestion()

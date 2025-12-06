@@ -865,6 +865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc737d0e854825d45815e11011363aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RobotBehavior
+  locationID: 1
 --- !u!4 &3239097136215824954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9ce812e415eed6345a8a2e2cfbb21aae, type: 3}
