@@ -51,24 +51,11 @@ public class IntroManager : MonoBehaviour
 
     public void ReturnToScanningMode()
     {
-        if (libraryQuizScreen != null)
-        {
-            libraryQuizScreen.SetActive(false); // Hide the quiz UI
-        }
+        
+        if (libraryQuizScreen != null) libraryQuizScreen.SetActive(false);
+        if (foodQuizScreen != null) foodQuizScreen.SetActive(false);
+        if (servicesQuizScreen != null) servicesQuizScreen.SetActive(false);
 
-        if (foodQuizScreen != null)
-        {
-            foodQuizScreen.SetActive(false); // Hide the quiz UI
-        }
-
-        if (servicesQuizScreen != null)
-        {
-            servicesQuizScreen.SetActive(false); // Hide the quiz UI
-        }
-
-        if (hudPanel != null)
-        {
-            hudPanel.SetActive(true); // Show the "Search for poster" text
-        }
+        if (hudPanel != null) hudPanel.SetActive(true);
     }
 }
