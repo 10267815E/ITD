@@ -7,6 +7,9 @@ using Firebase.Extensions;
 
 public class QuizManager : MonoBehaviour
 {
+    [Header("Database Settings")]
+    public string questDatabaseName;
+    
     [System.Serializable]
     public class QuestionData
     {
