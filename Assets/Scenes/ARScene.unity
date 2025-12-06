@@ -857,8 +857,8 @@ MonoBehaviour:
   trackedImageManager: {fileID: 151853171}
   placeablePrefabs:
   - {fileID: 6546378934423373957, guid: bfb1cd6a92e75e944a5404bc33115963, type: 3}
-  - {fileID: 2899366068575816130, guid: cc5a505a0198e2f4bbcaa8ba1822401a, type: 3}
-  - {fileID: 7004556546485132208, guid: 97830e59f88eca945bc880f273fbe0eb, type: 3}
+  - {fileID: 6546378934423373957, guid: 0eb6053b1e0f4944d885b3aacd928561, type: 3}
+  - {fileID: 6546378934423373957, guid: bf163b7df92f91d43ada21cf9bc255b7, type: 3}
 --- !u!114 &151853173
 MonoBehaviour:
   m_ObjectHideFlags: 0
