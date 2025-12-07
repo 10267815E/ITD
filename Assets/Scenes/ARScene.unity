@@ -13222,6 +13222,7 @@ MonoBehaviour:
   libraryQuizScreen: {fileID: 1509104962}
   foodQuizScreen: {fileID: 2137923714}
   servicesQuizScreen: {fileID: 1169434994}
+  progressText: {fileID: 519410011}
 --- !u!1 &1745349595
 GameObject:
   m_ObjectHideFlags: 0

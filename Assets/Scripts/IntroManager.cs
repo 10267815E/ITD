@@ -1,4 +1,8 @@
 using UnityEngine;
+using TMPro; // Needed for Text
+using Firebase.Auth; // Needed for User ID
+using Firebase.Database; // Needed for Database
+using Firebase.Extensions;
 
 public class IntroManager : MonoBehaviour
 {
@@ -10,11 +14,17 @@ public class IntroManager : MonoBehaviour
     public GameObject foodQuizScreen;
     public GameObject servicesQuizScreen;
 
+    [Header("HUD Elements")]
+    public TextMeshProUGUI progressText;
+
     void Start()
     {
         // Ensure the correct state when the scene loads
         introPanel.SetActive(true); // Show the robot story
         hudPanel.SetActive(false);  // Hide the "Search" prompt
+
+        UpdateProgressCounter(); // updates progress upon game start
+
     }
 
     
@@ -57,5 +67,51 @@ public class IntroManager : MonoBehaviour
         if (servicesQuizScreen != null) servicesQuizScreen.SetActive(false);
 
         if (hudPanel != null) hudPanel.SetActive(true);
+
+        UpdateProgressCounter();
+    }
+
+    void UpdateProgressCounter()
+    {
+        if (progressText == null) return;
+
+        FirebaseUser user = FirebaseAuth.DefaultInstance.CurrentUser;
+        if (user != null)
+        {
+            DatabaseReference dbRef = FirebaseDatabase.DefaultInstance.RootReference;
+            
+            // Fetch the user's quest data
+            dbRef.Child("users").Child(user.UserId).Child("quests").GetValueAsync().ContinueWithOnMainThread(task =>
+            {
+                if (task.IsCompleted)
+                {
+                    DataSnapshot snapshot = task.Result;
+                    if (snapshot.Exists)
+                    {
+                        // Count how many quests are completed
+                        int count = 0;
+                        if (IsQuestComplete(snapshot.Child("library_completed"))) count++;
+                        if (IsQuestComplete(snapshot.Child("food_completed"))) count++;
+                        if (IsQuestComplete(snapshot.Child("services_completed"))) count++;
+
+                        // Update the text
+                        progressText.text = $"Scanned images: {count}/3";
+                    }
+                    else
+                    {
+                        progressText.text = "Scanned images: 0/3";
+                    }
+                }
+            });
+        }
+    }
+
+    bool IsQuestComplete(DataSnapshot s)
+    {
+        if (s.Exists && s.Value != null)
+        {
+            return bool.Parse(s.Value.ToString());
+        }
+        return false;
     }
 }
