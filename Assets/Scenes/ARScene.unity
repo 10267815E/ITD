@@ -8853,7 +8853,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuizManager
   questDatabaseName: 
   questions:
-  - questionText: ' test q1'
+  - questionText: Where should you go if you need to request official documents like
+      transcripts or enrolment letters?
     answers: []
     correctAnswerIndex: 0
   - questionText: test q2
@@ -11412,16 +11413,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::QuizManager
   questDatabaseName: 
   questions:
-  - questionText: ' test q1'
-    answers: []
+  - questionText: How long is the usual loan period for books borrowed from the NP
+      Library?
+    answers:
+    - 2 weeks
+    - 2 hours
+    - 2 years
     correctAnswerIndex: 0
-  - questionText: test q2
-    answers: []
+  - questionText: Where do you return borrowed books?
+    answers:
+    - book return chute
+    - any bookshelf
+    - library counter
     correctAnswerIndex: 0
-  - questionText: 'test q3
+  - questionText: 'What can you NOT do in the library?
 
 '
-    answers: []
+    answers:
+    - eat
+    - sleep
+    - read
     correctAnswerIndex: 0
   questionTextUI: {fileID: 175811397}
   answerButtonTexts:
