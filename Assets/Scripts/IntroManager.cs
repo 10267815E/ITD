@@ -3,6 +3,7 @@ using TMPro; // Needed for Text
 using Firebase.Auth; // Needed for User ID
 using Firebase.Database; // Needed for Database
 using Firebase.Extensions;
+using UnityEngine.SceneManagement;
 
 public class IntroManager : MonoBehaviour
 {
@@ -96,6 +97,11 @@ public class IntroManager : MonoBehaviour
 
                         // Update the text
                         progressText.text = $"Scanned images: {count}/3";
+
+                        if (count >= 3) // if count is above 3 (all quests done), trigger finale helper fnction
+                        {
+                            Invoke ("TriggerFinale", 2f); // Delay to allow player to see 3/3
+                        }
                     }
                     else
                     {
@@ -113,5 +119,10 @@ public class IntroManager : MonoBehaviour
             return bool.Parse(s.Value.ToString());
         }
         return false;
+    }
+
+    void TriggerFinale()
+    {
+        SceneManager.LoadScene("FinaleScene");
     }
 }
