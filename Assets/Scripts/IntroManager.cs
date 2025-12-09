@@ -100,7 +100,7 @@ public class IntroManager : MonoBehaviour
 
                         if (count >= 3) // if count is above 3 (all quests done), trigger finale helper fnction
                         {
-                            Invoke ("TriggerFinale", 2f); // Delay to allow player to see 3/3
+                            Invoke ("TriggerFinale", 4f); // Delay to allow player to see 3/3
                         }
                     }
                     else
