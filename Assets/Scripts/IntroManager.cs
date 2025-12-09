@@ -17,6 +17,14 @@ public class IntroManager : MonoBehaviour
 
     [Header("HUD Elements")]
     public TextMeshProUGUI progressText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI timerText;
+
+    public int currentScore = 0;
+    public float currentTime = 0f;
+    private bool isTimerRunning = false;
+
+
 
     void Start()
     {
@@ -25,10 +33,25 @@ public class IntroManager : MonoBehaviour
         hudPanel.SetActive(false);  // Hide the "Search" prompt
 
         UpdateProgressCounter(); // updates progress upon game start
+        
 
     }
 
-    
+    void Update()
+    {
+        if (isTimerRunning)
+        {
+            currentTime += Time.deltaTime;
+            
+            // Format time as MM:SS
+            int minutes = Mathf.FloorToInt(currentTime / 60F);
+            int seconds = Mathf.FloorToInt(currentTime % 60F);
+            if (timerText != null)
+                timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        }
+    }
+
+
     public void DismissIntro()
     {
         introPanel.SetActive(false); // Hide story
