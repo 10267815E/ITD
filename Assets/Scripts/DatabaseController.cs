@@ -11,6 +11,8 @@ public class TestFirebase : MonoBehaviour
     public TMP_InputField EmailInput;
     public TMP_InputField PasswordInput;
     
+    
+    
     // Reference to the database
     DatabaseReference mDatabaseRef;
 
