@@ -183,6 +183,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DatabaseController
   EmailInput: {fileID: 1822176112}
   PasswordInput: {fileID: 1490071788}
+  emailInput: {fileID: 1822176112}
+  passwordInput: {fileID: 1490071788}
+  feedbackText: {fileID: 1564873793}
 --- !u!4 &68232678
 Transform:
   m_ObjectHideFlags: 0

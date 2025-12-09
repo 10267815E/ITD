@@ -148,7 +148,7 @@ public class TestFirebase : MonoBehaviour
             if (task.IsCompleted)
             {
                 Debug.Log($"User logged in, id: {task.Result.User.UserId}");
-                SceneManager.LoadScene("MainMenu");
+                GoToMainMenu();
             }
         });
     }
@@ -165,13 +165,26 @@ public class TestFirebase : MonoBehaviour
             Invoke("ClearError", 3f);
         }
     }
+
+    void ClearError()
+    {
+        if (feedbackText != null)
+        {
+            feedbackText.text = "";
+        }
+    }
+
+    void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     
     
 }
 
 
 
-
+// --- DATA CLASSES ---
 public class User
 {
     public string email;
