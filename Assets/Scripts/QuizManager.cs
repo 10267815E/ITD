@@ -112,7 +112,7 @@ public class QuizManager : MonoBehaviour
             // get Database ref
             DatabaseReference dbRef = FirebaseDatabase.DefaultInstance.RootReference;
 
-            // Update the "library_completed" field to true
+            
             //Path: users > [userID] > quests > library_completed
             dbRef.Child("users").Child(user.UserId).Child("quests").Child(questDatabaseName).SetValueAsync(true)
                 .ContinueWithOnMainThread(task => 
@@ -122,6 +122,15 @@ public class QuizManager : MonoBehaviour
                         Debug.Log("Quest Progress Saved to Firebase!");
                     }
                 });
+
+            IntroManager manager = FindFirstObjectByType<IntroManager>();
+            if (manager != null)
+            {
+                // Save Score
+                dbRef.Child("users").Child(user.UserId).Child("score").SetValueAsync(manager.currentScore);
+                // Save Time Taken
+                dbRef.Child("users").Child(user.UserId).Child("time_taken").SetValueAsync(manager.currentTime);
+            }
         }
         else
         {

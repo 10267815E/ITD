@@ -3568,14 +3568,14 @@ RectTransform:
   m_GameObject: {fileID: 519410009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4124, y: 1.4124, z: 1.4124}
+  m_LocalScale: {x: 1.1877013, y: 1.1877013, z: 1.1877013}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 885557934}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 171, y: -143}
+  m_AnchoredPosition: {x: 153, y: -143}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519410011
@@ -3665,7 +3665,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 10.59417, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4070,7 +4070,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 171, y: -214}
+  m_AnchoredPosition: {x: 171, y: -280}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &554064649
@@ -6942,7 +6942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 171, y: -261}
+  m_AnchoredPosition: {x: 171, y: -344}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &899940703
@@ -13499,6 +13499,10 @@ MonoBehaviour:
   foodQuizScreen: {fileID: 2137923714}
   servicesQuizScreen: {fileID: 1169434994}
   progressText: {fileID: 519410011}
+  scoreText: {fileID: 554064649}
+  timerText: {fileID: 899940703}
+  currentScore: 0
+  currentTime: 0
 --- !u!1 &1745349595
 GameObject:
   m_ObjectHideFlags: 0

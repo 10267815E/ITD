@@ -93,10 +93,16 @@ public class User
     public string email;
     public QuestData quests;
 
+    public int score;
+
+    public float time_taken;
+
     public User(string email)
     {
         this.email = email;
         this.quests = new QuestData(); // Creates default false values
+        this.score = 0;
+        this.time_taken = 0f;
     }
 }
 
