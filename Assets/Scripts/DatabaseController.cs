@@ -10,6 +10,11 @@ public class TestFirebase : MonoBehaviour
 {
     public TMP_InputField EmailInput;
     public TMP_InputField PasswordInput;
+
+    [Header("UI References")]
+    public TMP_InputField emailInput;
+    public TMP_InputField passwordInput;
+    public TextMeshProUGUI feedbackText;
     
     
     
@@ -34,12 +39,42 @@ public class TestFirebase : MonoBehaviour
 
     public void SignUpAccount()
     {
+
+        if (string.IsNullOrEmpty(EmailInput.text) || string.IsNullOrEmpty(PasswordInput.text))
+        {
+            ShowError("Please enter both email and password.");
+            return;
+        }
         var signupTask = FirebaseAuth.DefaultInstance.CreateUserWithEmailAndPasswordAsync(EmailInput.text, PasswordInput.text);
         signupTask.ContinueWithOnMainThread(task =>
         {
-            if (task.IsFaulted || task.IsCanceled)
+            if (task.IsCanceled)
             {
+                
                 Debug.Log("Can't sign up due to error!!!");
+                return; // Stop here if it failed
+            }
+            if (task.IsFaulted)
+            {
+                FirebaseException firebaseEx = task.Exception.GetBaseException() as FirebaseException;
+                AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
+                string message = "Sign Up Failed!";
+                switch (errorCode)
+                {
+                    case AuthError.EmailAlreadyInUse:
+                        message = "This email is already registered.";
+                        break;
+                    case AuthError.WeakPassword:
+                        message = "Password is too weak (min 6 chars).";
+                        break;
+                    case AuthError.InvalidEmail:
+                        message = "Invalid email format.";
+                        break;
+                    default:
+                        message = "Error: " + firebaseEx.Message; // Fallback
+                        break;
+                }
+                ShowError(message);
                 return; // Stop here if it failed
             }
 
@@ -50,6 +85,9 @@ public class TestFirebase : MonoBehaviour
 
                 //  Create the database entry ---
                 WriteNewUser(newUser.UserId, newUser.Email);
+
+                ShowError("Success! Logging in...", Color.green);
+                Invoke("GoToMainMenu", 1.0f);
             }
         });
     }
@@ -68,12 +106,43 @@ public class TestFirebase : MonoBehaviour
 
     public void SignIn()
     {
+
+        if (string.IsNullOrEmpty(EmailInput.text) || string.IsNullOrEmpty(PasswordInput.text))
+        {
+            ShowError("Please fill in all fields.");
+            return;
+        }
         var signInTask = FirebaseAuth.DefaultInstance.SignInWithEmailAndPasswordAsync(EmailInput.text, PasswordInput.text);
         signInTask.ContinueWithOnMainThread(task =>
         {
-            if (task.IsFaulted || task.IsCanceled)
+            if (task.IsCanceled)
             {
-                Debug.Log("Can't sign in due to error!!!");
+                ShowError("Sign in canceled.");
+            }
+
+            if (task.IsFaulted)
+            {
+                FirebaseException firebaseEx = task.Exception.GetBaseException() as FirebaseException;
+                AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
+
+                string message = "Login Failed!";
+                switch (errorCode)
+                {
+                    case AuthError.WrongPassword:
+                        message = "Incorrect Password.";
+                        break;
+                    case AuthError.UserNotFound:
+                        message = "Account does not exist.";
+                        break;
+                    case AuthError.InvalidEmail:
+                        message = "Invalid Email.";
+                        break;
+                    default:
+                        message = "Error: " + firebaseEx.Message;
+                        break;
+                }
+                ShowError(message);
+                return;
             }
 
             if (task.IsCompleted)
@@ -83,9 +152,24 @@ public class TestFirebase : MonoBehaviour
             }
         });
     }
+
+    void ShowError(string message, Color color = default)
+    {
+        if (feedbackText != null)
+        {
+            feedbackText.text = message;
+            feedbackText.color = (color == default) ? Color.red : color;
+            
+            // Clear message after 3 seconds so UI stays clean
+            CancelInvoke("ClearError");
+            Invoke("ClearError", 3f);
+        }
+    }
     
     
 }
+
+
 
 
 public class User
