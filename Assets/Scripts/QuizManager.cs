@@ -31,7 +31,7 @@ public class QuizManager : MonoBehaviour
 
     private int currentQuestionIndex = 0;
 
-    // CHANGE 'void Start()' TO 'void OnEnable()'
+    
     void OnEnable() 
     {
         // Resets the index to 0 every time this canvas appears
@@ -69,13 +69,19 @@ public class QuizManager : MonoBehaviour
 
     public void OnAnswerSelected(int index)
     {
+
+        IntroManager manager = FindFirstObjectByType<IntroManager>(); // Find IntroManager in scene 
         if (index == questions[currentQuestionIndex].correctAnswerIndex)
         {
+
+            if (manager != null) manager.ModifyScore(1); // Award 1 point for correct answer
+            
             currentQuestionIndex++;
             LoadQuestion();
         }
         else
         {
+            if (manager != null) manager.ModifyScore(-1); // Deduct 1 point for wrong answer
             tryAgainPanel.SetActive(true);
         }
     }
