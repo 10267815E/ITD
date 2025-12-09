@@ -33,7 +33,7 @@ public class IntroManager : MonoBehaviour
         hudPanel.SetActive(false);  // Hide the "Search" prompt
 
         UpdateProgressCounter(); // updates progress upon game start
-        
+        UpdateScoreUI();
 
     }
 
@@ -56,8 +56,19 @@ public class IntroManager : MonoBehaviour
     {
         introPanel.SetActive(false); // Hide story
         hudPanel.SetActive(true);    // Show "Search for poster" text
+        isTimerRunning = true; // Only start timer after the game starts
         
-        
+    }
+
+    public void ModifyScore(int amount)
+    {
+        currentScore += amount;
+        UpdateScoreUI();
+    }
+
+    void UpdateScoreUI()
+    {
+        if (scoreText != null) scoreText.text = "Score: " + currentScore;
     }
 
     public void StartQuiz(GameObject spawnedRobot, int locationID) 
