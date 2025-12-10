@@ -29,6 +29,11 @@ public class QuizManager : MonoBehaviour
     public GameObject winPanel;
     public GameObject questionPanel; 
 
+    [Header("Audio Settings")]
+    public AudioSource sfxPlayer;
+    public AudioClip correctSound;
+    public AudioClip wrongSound;
+
     private int currentQuestionIndex = 0;
 
     
@@ -74,6 +79,11 @@ public class QuizManager : MonoBehaviour
         if (index == questions[currentQuestionIndex].correctAnswerIndex)
         {
 
+            if (sfxPlayer != null && correctSound != null)
+            {
+                sfxPlayer.PlayOneShot(correctSound);
+            }
+
             if (manager != null) manager.ModifyScore(1); // Award 1 point for correct answer
             
             currentQuestionIndex++;
@@ -81,6 +91,11 @@ public class QuizManager : MonoBehaviour
         }
         else
         {
+
+            if (sfxPlayer != null && wrongSound != null)
+            {
+                sfxPlayer.PlayOneShot(wrongSound);
+            }
             if (manager != null) manager.ModifyScore(-1); // Deduct 1 point for wrong answer
             tryAgainPanel.SetActive(true);
         }
