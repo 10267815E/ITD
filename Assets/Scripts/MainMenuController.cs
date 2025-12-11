@@ -4,6 +4,8 @@ using TMPro;
 using Firebase.Auth;     
 using Firebase.Database; 
 using Firebase.Extensions; 
+// A script to manage the main menu UI, fetching user quest completion status from Firebase and updating the display.
+// Made by: Xander Foong
 
 public class MainMenuController : MonoBehaviour
 {
@@ -95,7 +97,7 @@ public class MainMenuController : MonoBehaviour
     {
         if (textObj == null) return;
 
-        if (isComplete)
+        if (isComplete) // Controls the text colour and message
         {
             textObj.text = "Status: Completed";
             textObj.color = completeColor;
@@ -107,7 +109,7 @@ public class MainMenuController : MonoBehaviour
         }
     }
 
-    public void ARController()
+    public void ARController() // Connected to the 'Open AR Camera' button
     {
         SceneManager.LoadScene("ARScene");
     }
