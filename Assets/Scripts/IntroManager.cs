@@ -10,18 +10,19 @@ using UnityEngine.SceneManagement;
 public class IntroManager : MonoBehaviour
 {
     [Header("UI Panels")]
-    public GameObject introPanel;   
-    public GameObject hudPanel;  
-
-    public GameObject libraryQuizScreen;   
-    public GameObject foodQuizScreen;
-    public GameObject servicesQuizScreen;
-
+    public GameObject introPanel;    // The initial panel where the robot explains the 'story'
+    public GameObject hudPanel;     // The HUD panel showing "Start scanning" text
+    
+    [Header("Quiz Canvases")]
+    // References to the specific quiz UIs for each location
+    public GameObject libraryQuizScreen;   // Quiz screen for the library location
+    public GameObject foodQuizScreen;      // Quiz screen for the food location
+    public GameObject servicesQuizScreen;  // Quiz screen for the services location
     [Header("HUD Elements")]
-    public TextMeshProUGUI progressText;
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI timerText;
-
+    public TextMeshProUGUI progressText;    // Shows "1/3"
+    public TextMeshProUGUI scoreText;     // Shows current score (0 at first)
+    public TextMeshProUGUI timerText;      // Shows elapsed time in MM:SS format
+    // --- Game State Variables ---
     public int currentScore = 0;
     public float currentTime = 0f;
     private bool isTimerRunning = false;
@@ -30,10 +31,11 @@ public class IntroManager : MonoBehaviour
 
     void Start()
     {
-        // Ensure the correct state when the scene loads
+        // Initial Scene Setup: Show Intro and hide HUD
         introPanel.SetActive(true); // Show the robot story
-        hudPanel.SetActive(false);  // Hide the "Search" prompt
-
+        hudPanel.SetActive(false);  // Hide the "Start scanning" prompt
+     
+        // Fetch initial data from Firebase
         UpdateProgressCounter(); // updates progress upon game start
         UpdateScoreUI();
 
@@ -41,6 +43,7 @@ public class IntroManager : MonoBehaviour
 
     void Update()
     {
+        
         if (isTimerRunning)
         {
             currentTime += Time.deltaTime;
@@ -53,16 +56,16 @@ public class IntroManager : MonoBehaviour
         }
     }
 
-
+    // Called when the user clicks "Start Scanning" on the Intro Panel
     public void DismissIntro()
     {
         introPanel.SetActive(false); // Hide story
-        hudPanel.SetActive(true);    // Show "Search for poster" text
+        hudPanel.SetActive(true);    // Show "Start scanning" text
         isTimerRunning = true; // Only start timer after the game starts
         
     }
 
-    public void ModifyScore(int amount)
+    public void ModifyScore(int amount) // Score management
     {
         currentScore += amount;
         UpdateScoreUI();
@@ -72,11 +75,12 @@ public class IntroManager : MonoBehaviour
     {
         if (scoreText != null) scoreText.text = "Score: " + currentScore;
     }
-
+ 
+    // Called by the robot when the user taps "Start Quiz"
     public void StartQuiz(GameObject spawnedRobot, int locationID) 
     {
       Destroy(spawnedRobot); // Remove robot
-       
+      // Activate the correct Quiz Canvas based on the location ID set in the Robot Prefab 
       switch (locationID)
       {
         case 1:
@@ -95,17 +99,17 @@ public class IntroManager : MonoBehaviour
 
       
     }
-
+    // Called when the user finishes a quiz and clicks "Return"
     public void ReturnToScanningMode()
     {
-        
+        // Ensure all quiz screens are closed
         if (libraryQuizScreen != null) libraryQuizScreen.SetActive(false);
         if (foodQuizScreen != null) foodQuizScreen.SetActive(false);
         if (servicesQuizScreen != null) servicesQuizScreen.SetActive(false);
-
+        // Re-enable the scanning HUD
         if (hudPanel != null) hudPanel.SetActive(true);
 
-        UpdateProgressCounter();
+        UpdateProgressCounter(); // Refresh progress from Database to see if we reached 3/3
     }
 
     void UpdateProgressCounter()
@@ -117,7 +121,7 @@ public class IntroManager : MonoBehaviour
         {
             DatabaseReference dbRef = FirebaseDatabase.DefaultInstance.RootReference;
             
-            // Fetch the user's quest data
+            // Fetch the user's quest data from the quests node
             dbRef.Child("users").Child(user.UserId).Child("quests").GetValueAsync().ContinueWithOnMainThread(task =>
             {
                 if (task.IsCompleted)
@@ -136,7 +140,7 @@ public class IntroManager : MonoBehaviour
 
                         if (count >= 3) // if count is above 3 (all quests done), trigger finale helper fnction
                         {
-                            Invoke ("TriggerFinale", 4f); // Delay to allow player to see 3/3
+                            Invoke ("TriggerFinale", 4f); // Delay to allow player to see 3/3 score
                         }
                     }
                     else
@@ -148,7 +152,7 @@ public class IntroManager : MonoBehaviour
         }
     }
 
-    bool IsQuestComplete(DataSnapshot s)
+    bool IsQuestComplete(DataSnapshot s) // Helper function to parse boolean from DataSnapshot
     {
         if (s.Exists && s.Value != null)
         {
