@@ -4,6 +4,8 @@ using Firebase.Auth; // Needed for User ID
 using Firebase.Database; // Needed for Database
 using Firebase.Extensions;
 using UnityEngine.SceneManagement;
+// A script to manage the intro panel, HUD, quizzes, score, and timer.
+// Made by: Xander Foong
 
 public class IntroManager : MonoBehaviour
 {

@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+// A script to link the finale scene button to go back to the main menu.
+// Made by: Xander Foong  
 
 public class FinaleManager : MonoBehaviour
 {
@@ -17,6 +19,6 @@ public class FinaleManager : MonoBehaviour
 
     public void GoHome()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenu"); // Load the MainMenu scene
     }
 }

@@ -5,6 +5,8 @@ using Firebase.Auth;
 using Firebase.Extensions;
 using UnityEngine.SceneManagement;
 using TMPro;
+// A script to manage the Firebase authentication for sign up and log in, including error handling and database entry creation.
+// Made by: Xander Foong and Lucas Tan
 
 public class TestFirebase : MonoBehaviour
 {

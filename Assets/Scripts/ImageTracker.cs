@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
-
+// A script to manage image tracking in the AR scene, spawning and updating AR content based on tracked images.
+// Original from Brightspace. Modified by: Xander Foong
 public class ImageTracker : MonoBehaviour
 {
     [SerializeField]
